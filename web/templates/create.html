@@ -1,0 +1,386 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Find Lost Pet</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="Preview page of Metronic Admin Theme #3 for Portfolio 3 - Lightbox Grid" name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/simple-line-icons/simple-line-icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/bootstrap-switch/css/bootstrap-switch.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="{% static 'global/plugins/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/select2/css/select2-bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="{% static 'global/css/components-md.min.css' %}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{% static 'global/css/plugins-md.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <!-- END PAGE LEVEL STYLES -->
+
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="{% static 'layouts/layout3/css/layout.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'layouts/layout3/css/themes/default.min.css' %}" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="{% static 'layouts/layout3/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END THEME LAYOUT STYLES -->
+        <link rel="shortcut icon" href="favicon.ico" /> 
+		
+        </head>
+    <!-- END HEAD -->
+
+    <body class="page-container-bg-solid page-md">
+        <div class="page-wrapper">
+            <div class="page-wrapper-row">
+                <div class="page-wrapper-top">
+                    <!-- BEGIN HEADER -->
+                    <div class="page-header" style="height: inherit;">
+                        <!-- BEGIN HEADER TOP -->
+                        <div class="page-header-top" style="height: inherit;">
+                            <div class="container">
+                                <!-- BEGIN LOGO -->
+                                <div class="page-logo">
+                                    <a href="{% url 'main' %}">
+                                        <h3>Find Lost Pet</h3>
+                                    </a>
+                                </div>
+                                <!-- END LOGO -->
+                                
+                                <!-- BEGIN TOP NAVIGATION MENU -->
+                                <div class="top-menu">
+                                    <ul class="nav navbar-nav pull-right">
+                                    {% if request.session.user != None %}
+				        <a href="{% url 'logout' %}" class="btn green btn-outline login-group"> Log Out</a>
+				    {% endif %}
+				    </ul>
+                                </div>
+                            </div>
+							
+						
+                        </div>
+                        <!-- END HEADER TOP -->
+                        <!-- BEGIN HEADER MENU -->
+                        <div class="page-header-menu">
+                            <div class="container">
+			    </div>
+                        </div>
+                        <!-- END HEADER MENU -->
+                    </div>
+                    <!-- END HEADER -->
+                </div>
+            </div>
+            <div class="page-wrapper-row full-height">
+                <div class="page-wrapper-middle">
+                    <!-- BEGIN CONTAINER -->
+                    <div class="page-container">
+                        <!-- BEGIN CONTENT -->
+                        <div class="page-content-wrapper">
+                            <!-- BEGIN CONTENT BODY -->
+                            
+                            <!-- BEGIN PAGE CONTENT BODY -->
+                            <div class="page-content">
+                                <div class="container">
+                                    <!-- BEGIN PAGE CONTENT INNER -->
+                                    <div class="page-content-inner" style="margin-bottom: 30px;">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!-- BEGIN VALIDATION STATES-->
+                                                <div class="portlet light portlet-fit portlet-form ">
+                                                    <div class="portlet-title">
+                                                        <div class="caption">
+                                                            <i class="icon-settings font-red"></i>
+                                                            <span class="caption-subject font-red sbold">Add New Client</span>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <!-- BEGIN FORM-->
+                                                        <form action="#" id="form_sample_1" class="form-horizontal" method="post">
+                                                            {% csrf_token %}
+                                                            <div class="form-body">
+                                                                <div class="alert alert-danger display-hide">
+                                                                    <button class="close" data-close="alert"></button> You have some form errors. Please check below. </div>
+                                                                <div class="alert alert-success display-hide">
+                                                                    <button class="close" data-close="alert"></button> Your form validation is successful! </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">Client Name
+                                                                        <span class="required"> * </span>
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <input type="text" name="client_name" class="form-control" /> </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">password
+                                                                        <span class="required"> * </span>
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <input type="text" name="password" class="form-control" /> </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">Email
+                                                                        <span class="required"> * </span>
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <input name="email" type="text" class="form-control" /> </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">Pet Name
+                                                                        <span class="required"> * </span>
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <input name="pet_name" type="text" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">Type
+                                                                        <span class="required"> * </span>
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <select class="form-control" name="type">
+                                                                            <option value="dog">Dog</option>
+                                                                            <option value="cat">Cat</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">Sex
+                                                                        <span class="required"> * </span>
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <select class="form-control" name="sex">
+                                                                            <option value="boy">Boy</option>
+                                                                            <option value="girl">Girl</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">Breed
+                                                                        <span class="required"> * </span>
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <select class="form-control select2me" name="breed">
+                                                                            <option value="">Select...</option>
+                                                                            {% for breed in breeds %}
+                                                                            <option value="{{ breed }}">{{ breed }}</option>
+                                                                            {% endfor %}
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">Size
+                                                                        <span class="required"> * </span>
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <select class="form-control" name="size">
+                                                                            <option value="">Select</option>
+                                                                            <option value="small">Small</option>
+                                                                            <option value="medium">Medium</option>
+                                                                            <option value="large">Large</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">Color
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <select class="form-control" name="color">
+                                                                            <option value="">Select</option>
+                                                                            <option value="black">Black</option>
+                                                                            <option value="brown">Brown</option>
+                                                                            <option value="white">White</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">Date
+                                                                        <span class="required"> * </span>
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
+                                                                            <input type="text" class="form-control" readonly name="date">
+                                                                            <span class="input-group-btn">
+                                                                                <button class="btn default" type="button">
+                                                                                    <i class="fa fa-calendar"></i>
+                                                                                </button>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">State
+                                                                        <span class="required"> * </span>
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <select class="form-control select2me" name="state">
+                                                                            <option value="">Select...</option>
+                                                                            <option value="AB - Alberta">AB - Alberta</option>
+									<option value="AK - Alaska">AK - Alaska</option>
+									<option value="AL - Alabama">AL - Alabama</option>
+									<option value="AR - Arkansas">AR - Arkansas</option>
+									<option value="AZ - Arizona">AZ - Arizona</option>
+									<option value="BC - British Columbia">BC - British Columbia</option>
+									<option value="CA - California">CA - California</option>
+									<option value="CO - Colorado">CO - Colorado</option>
+									<option value="CT - Connecticut">CT - Connecticut</option>
+									<option value="DE - Delaware">DE - Delaware</option>
+									<option value="FL - Florida">FL - Florida</option>
+									<option value="GA - Georgia">GA - Georgia</option>
+									<option value="HI - Hawaii">HI - Hawaii</option>
+									<option value="IA - Iowa">IA - Iowa</option>
+									<option value="ID - Idaho">ID - Idaho</option>
+									<option value="IL - Illinois">IL - Illinois</option>
+									<option value="IN - Indiana">IN - Indiana</option>
+									<option value="KS - Kansas">KS - Kansas</option>
+									<option value="KY - Kentucky">KY - Kentucky</option>
+									<option value="LA - Louisiana">LA - Louisiana</option>
+									<option value="MA - Massachusetts">MA - Massachusetts</option>
+									<option value="MB - Manitoba">MB - Manitoba</option>
+									<option value="MD - Maryland">MD - Maryland</option>
+									<option value="ME - Maine">ME - Maine</option>
+									<option value="MI - Michigan">MI - Michigan</option>
+									<option value="MN - Minnesota">MN - Minnesota</option>
+									<option value="MO - Missouri">MO - Missouri</option>
+									<option value="MS - Mississippi">MS - Mississippi</option>
+									<option value="MT - Montana">MT - Montana</option>
+									<option value="NB - New Brunswick">NB - New Brunswick</option>
+									<option value="NC - North Carolina">NC - North Carolina</option>
+									<option value="ND - North Dakota">ND - North Dakota</option>
+									<option value="NE - Nebraska">NE - Nebraska</option>
+									<option value="NH - New Hampshire">NH - New Hampshire</option>
+									<option value="NJ - New Jersey">NJ - New Jersey</option>
+									<option value="NL - Newfoundland and Labrador">NL - Newfoundland and Labrador</option>
+									<option value="NM - New Mexico">NM - New Mexico</option>
+									<option value="NS - Nova Scotia">NS - Nova Scotia</option>
+									<option value="NT - Northwest Territories">NT - Northwest Territories</option>
+									<option value="NU - Nunavut">NU - Nunavut</option>
+									<option value="NV - Nevada">NV - Nevada</option>
+									<option value="NY - New York">NY - New York</option>
+									<option value="OH - Ohio">OH - Ohio</option>
+									<option value="OK - Oklahoma">OK - Oklahoma</option>
+									<option value="ON - Ontario">ON - Ontario</option>
+									<option value="OR - Oregon">OR - Oregon</option>
+									<option value="PA - Pennsylvania">PA - Pennsylvania</option>
+									<option value="PE - Prince Edward Island">PE - Prince Edward Island</option>
+									<option value="QC - Quebec">QC - Quebec</option>
+									<option value="RI - Rhode Island">RI - Rhode Island</option>
+									<option value="SC - South Carolina">SC - South Carolina</option>
+									<option value="SD - South Dakota">SD - South Dakota</option>
+									<option value="SK - Saskatchewan">SK - Saskatchewan</option>
+									<option value="TN - Tennessee">TN - Tennessee</option>
+									<option value="TX - Texas">TX - Texas</option>
+									<option value="UT - Utah">UT - Utah</option>
+									<option value="VA - Virginia">VA - Virginia</option>
+									<option value="VT - Vermont">VT - Vermont</option>
+									<option value="WA - Washington">WA - Washington</option>
+									<option value="WI - Wisconsin">WI - Wisconsin</option>
+									<option value="WV - West Virginia">WV - West Virginia</option>
+									<option value="WY - Wyoming">WY - Wyoming</option>
+									<option value="YT - Yukon Territory">YT - Yukon Territory</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">Zip Code
+                                                                        <span class="required"> * </span>
+                                                                    </label>
+                                                                    <div class="col-md-4">
+                                                                        <input name="zip_code" type="text" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-actions">
+                                                                <div class="row">
+                                                                    <div class="col-md-offset-3 col-md-9">
+                                                                        <button type="submit" class="btn green">Submit</button>
+                                                                        <a href="{% url 'main' %}" class="btn grey-salsa btn-outline">Cancel</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                        <!-- END FORM-->
+                                                    </div>
+                                                </div>
+                                                <!-- END VALIDATION STATES-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END PAGE CONTENT INNER -->
+                                </div>
+                            </div>
+                            <!-- END PAGE CONTENT BODY -->
+                            <!-- END CONTENT BODY -->
+                        </div>
+                        <!-- END CONTENT -->
+                    </div>
+                    <!-- END CONTAINER -->
+                </div>
+            </div>
+            <div class="page-wrapper-row">
+                <div class="page-wrapper-bottom">
+                    <!-- BEGIN FOOTER -->
+                    
+                    <!-- BEGIN INNER FOOTER -->
+                    <div class="page-footer">
+                        <div class="container"> 2016 &copy; Find Lost Pet
+                            
+                        </div>
+                    </div>
+                    <div class="scroll-to-top">
+                        <i class="icon-arrow-up"></i>
+                    </div>
+                    <!-- END INNER FOOTER -->
+                    <!-- END FOOTER -->
+                </div>
+            </div>
+        </div>
+        
+        <!--[if lt IE 9]>
+<script src="{% static 'global/plugins/respond.min.js"></script>
+<script src="{% static 'global/plugins/excanvas.min.js"></script> 
+<script src="{% static 'global/plugins/ie8.fix.min.js"></script> 
+<![endif]-->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="{% static 'global/plugins/jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/js.cookie.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/jquery-slimscroll/jquery.slimscroll.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/jquery.blockui.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/bootstrap-switch/js/bootstrap-switch.min.js' %}" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="{% static 'global/plugins/moment.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/select2/js/select2.full.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/jquery-validation/js/jquery.validate.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/jquery-validation/js/additional-methods.min.js' %}" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="{% static 'global/scripts/app.min.js' %}" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<script src="{% static 'pages/scripts/components-date-time-pickers.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'pages/scripts/form-validation.js' %}" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="{% static 'layouts/layout3/scripts/layout.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'layouts/layout3/scripts/demo.min.js' %}" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+    </body>
+
+</html>

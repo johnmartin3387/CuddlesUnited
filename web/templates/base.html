@@ -1,0 +1,183 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Find Lost Pet</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="Preview page of Metronic Admin Theme #3 for Portfolio 3 - Lightbox Grid" name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/simple-line-icons/simple-line-icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/bootstrap-switch/css/bootstrap-switch.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="{% static 'global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/datatables/datatables.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="{% static 'global/css/components-md.min.css' %}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{% static 'global/css/plugins-md.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <!-- END PAGE LEVEL STYLES -->
+
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="{% static 'layouts/layout3/css/layout.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'layouts/layout3/css/themes/default.min.css' %}" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="{% static 'layouts/layout3/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END THEME LAYOUT STYLES -->
+
+        {% block extra_css %}{% endblock %}
+        <link rel="shortcut icon" href="favicon.ico" /> 
+
+        <style>
+            .top-menu .btn.btn-outline.green {
+                border-color: white;
+                color: white;
+                background: 0 0;
+            }
+        </style>
+        </head>
+    <!-- END HEAD -->
+
+    <body class="page-container-bg-solid page-md">
+        <div class="page-wrapper">
+            <div class="page-wrapper-row">
+                <div class="page-wrapper-top">
+                    <!-- BEGIN HEADER -->
+                    <div class="page-header" style="height: inherit;">
+                        <!-- BEGIN HEADER TOP -->
+                        <div class="page-header-top" style="height: inherit; background-image: url(/static/images/logo_label.png); background-size: 15%; background-color: #1E5F86; background-repeat: no-repeat; background-position: 3% 0%;">
+                            <div class="container">
+                                <!-- BEGIN LOGO -->
+                                <div class="page-logo">
+                                    <a href="{% url 'main' %}">
+                                        <h3></h3>
+                                    </a>
+                                </div>
+                                <!-- END LOGO -->
+                                
+                                <!-- BEGIN TOP NAVIGATION MENU -->
+                                <div class="top-menu">
+                                    <ul class="nav navbar-nav pull-right">
+                                    {% if request.session.user != None %}
+				        
+                                     {% if request.session.user.role == "client" %}
+                                     <span class="username username-hide-mobile" style="margin-right: 20px; color: white;">Hi, {{request.session.user.username}} </span>
+                                     <a href="{% url 'pricing' %}" class="btn green btn-outline login-group"> Pricing </a>
+                                     {% else %}
+                                     <span class="username username-hide-mobile" style="margin-right: 20px; color: white;">Hi, Administrator </span>
+                                     {% endif %}
+                                     <a href="{% url 'logout' %}" class="btn green btn-outline login-group"> Log Out</a>
+				    {% else %}
+                                        <a href="{% url 'login' %}" class="btn green btn-outline login-group"> Sign In</a>
+                                        <a href="{% url 'signup' %}" class="btn green btn-outline login-group"> Sign Up</a>
+                                    {% endif %}
+				    </ul>
+                                </div>
+                            </div>
+							
+						
+                        </div>
+                        <!-- END HEADER TOP -->
+                        <!-- BEGIN HEADER MENU -->
+                        <div class="page-header-menu">
+                            <div class="container">
+			    </div>
+                        </div>
+                        <!-- END HEADER MENU -->
+                    </div>
+                    <!-- END HEADER -->
+                </div>
+            </div>
+            <div class="page-wrapper-row full-height">
+                <div class="page-wrapper-middle">
+                    <!-- BEGIN CONTAINER -->
+                    <div class="page-container">
+                        <!-- BEGIN CONTENT -->
+                        <div class="page-content-wrapper">
+                            <!-- BEGIN CONTENT BODY -->
+                            
+                            <!-- BEGIN PAGE CONTENT BODY -->
+                            <div class="page-content">
+                                <div class="container">
+                                    {% block content %}{% endblock %}
+                                </div>
+                            </div>
+                            <!-- END PAGE CONTENT BODY -->
+                            <!-- END CONTENT BODY -->
+                        </div>
+                        <!-- END CONTENT -->
+                    </div>
+                    <!-- END CONTAINER -->
+                </div>
+            </div>
+            <div class="page-wrapper-row">
+                <div class="page-wrapper-bottom">
+                    <!-- BEGIN FOOTER -->
+                    
+                    <!-- BEGIN INNER FOOTER -->
+                    <div class="page-footer">
+                        <div class="container"> 2017 &copy; Cuddles United
+                            
+                        </div>
+                    </div>
+                    <div class="scroll-to-top">
+                        <i class="icon-arrow-up"></i>
+                    </div>
+                    <!-- END INNER FOOTER -->
+                    <!-- END FOOTER -->
+                </div>
+            </div>
+        </div>
+        
+        <!--[if lt IE 9]>
+<script src="{% static 'global/plugins/respond.min.js"></script>
+<script src="{% static 'global/plugins/excanvas.min.js"></script> 
+<script src="{% static 'global/plugins/ie8.fix.min.js"></script> 
+<![endif]-->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="{% static 'global/plugins/jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/js.cookie.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/jquery-slimscroll/jquery.slimscroll.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/jquery.blockui.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/bootstrap-switch/js/bootstrap-switch.min.js' %}" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="{% static 'global/plugins/moment.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/scripts/datatable.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/datatables/datatables.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js' %}" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="{% static 'global/scripts/app.min.js' %}" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<script src="{% static 'pages/scripts/components-date-time-pickers.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'pages/scripts/table-datatables-managed.js' %}" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="{% static 'layouts/layout3/scripts/layout.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'layouts/layout3/scripts/demo.min.js' %}" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+
+        {% block extra_js %}{% endblock %}
+    </body>
+
+</html>

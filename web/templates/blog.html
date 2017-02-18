@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="{% static 'global/plugins/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'pages/css/blog.min.css' %}" rel="stylesheet" type="text/css" />
+
+{% endblock %}
+
+{% block content %}
+<div class="page-content-inner">
+<div class="blog-page blog-content-2">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="blog-single-content bordered blog-container">
+                <div class="blog-single-head">
+                    <h1 class="blog-single-head-title" style="color: red; margin: 0px;">Missing Pet Alert - Help Us Find {{blog.client.pet_name}}!</h1>
+                    <div class="blog-single-head-date">
+                        <i class="icon-calendar font-blue"></i>
+                        <a href="javascript:;">{{ blog.created_on }}</a>
+                    </div>
+                </div>
+                <div class="blog-single-img" style="margin-top: 20px;">
+                    <center> <img src="/static/images/{{ blog.client.pet_image }}" style="width: 80%;"/> </center></div>
+                <div class="blog-single-desc">
+                    <p>{{ blog.client.description }}</p>
+                    <p>{{blog.client.pet_name}} was last seen in {{blog.client.city}}, {{blog.client.state}}. He was last seen on {{blog.client.date|date:"m/d/Y"}}. If seen please call {{ phone }}. Comments from owner- {{ blog.client.name }}</p>
+                </div>
+
+                 <div class="blog-comments" style="width: 90%">
+			    <h3 class="sbold blog-comments-title">Comments(<span class="com_num">{{comments|length}}</span>)</h3>
+			    <div class="c-comment-list">
+                                {% for comment in comments %}
+				<div class="media">
+				    <div class="media-left">
+				        <a href="#">
+				            <img class="media-object" alt="" src="{% static 'pages/img/default.png' %}"> </a>
+				    </div>
+				    <div class="media-body">
+				        <h4 class="media-heading">
+				            on
+				            <span class="c-date">{{ comment.created_on }}</span>
+				        </h4> {{comment.text}} </div>
+				</div>
+                                {% endfor %}
+			    </div>
+			    <h3 class="sbold blog-comments-title">Leave A Comment</h3>
+				<div class="form-group">
+				    <textarea rows="2" name="message" placeholder="Write comment here ..." class="form-control c-square comment" onkeyup="enable_submit(this)"></textarea>
+				</div>
+				<div class="form-group">
+				    <button type="button" class="btn blue uppercase btn-md sbold btn-block sbt-btn" onclick="post_comment()">Submit</button>
+				</div>
+			</div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+</div>
+{% endblock %}
+<!-- END PAGE CONTENT INNER -->
+
+{% block extra_js %}
+
+<script>
+$(document).ready(function(){
+    $(".sbt-btn").prop( "disabled", true );
+})
+
+function enable_submit(obj){
+    if($(obj).val() == "")
+        $(".sbt-btn").prop( "disabled", true );
+    else
+        $(".sbt-btn").prop( "disabled", false );
+}
+function post_comment(){
+    console.log($(".comment").val())
+
+    $.ajax({
+	   url: '{% url "post_comment" %}',
+	   data: {
+	      blog_id: '{{ blog.path_key }}',
+              comment: $(".comment").val()
+	   },
+	   dataType: 'json',
+	   success: function(data) {
+              console.log(data)
+	      $(".comment").val("")
+              $(".sbt-btn").prop( "disabled", true );
+
+              $(".com_num").html(data["num"])
+
+              res_str = ""
+
+              for(var i=0; i<data["content"].length; i++){
+                  res_str += '<div class="media"> \
+				    <div class="media-left"> \
+				        <a href="#"> \
+				            <img class="media-object" alt="" src="/static/pages/img/default.png"> </a> \
+				    </div> \
+				    <div class="media-body"> \
+				        <h4 class="media-heading"> \
+				            on \
+				            <span class="c-date">'+data["content"][i]['date']+'</span> \
+				        </h4> '+data["content"][i]['comment']+' </div> \
+				</div>'
+              }
+
+              $(".c-comment-list").html(res_str)
+	   },
+	   type: 'GET'
+	});
+}
+</script>
+
+{% endblock %}

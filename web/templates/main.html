@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <!-- BEGIN PAGE CONTENT INNER -->
+    <div class="page-content-inner" style="margin-bottom: 30px;">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light ">
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="icon-settings font-dark"></i>
+                            <span class="caption-subject bold uppercase"> Clients & Monitors</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="btn-group">
+                                        <a href="{% url 'new-client' %}" class="btn sbold green"> Add New
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+                            <thead>
+                                <tr>
+                                    <th width="120px"> Client </th>
+                                    <th> Email </th>
+                                    <th> Pet Name </th>
+                                    <th> Type </th>
+                                    <th> Breed </th>
+                                    <th> Size </th>
+                                    <th> Color </th>
+                                    <th> Sex </th>
+                                    <th> Date </th>
+                                    <th> Location </th>
+                                    <th> Action </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for client in clients %}
+                                <tr class="odd gradeX">
+                                    
+                                    <td class="center"> {{ client.name }} </td>
+                                    <td class="center"> {{ client.email }} </td>
+                                    <td class="center"> {{ client.pet_name }} </td>
+                                    <td class="center"> {{ client.type }} </td>
+                                    <td class="center"> {{ client.breed }} </td>
+                                    <td class="center"> {{ client.size }} </td>
+                                    <td class="center"> {{ client.color|default:"no color" }} </td>
+                                    <td class="center"> {{ client.sex }} </td>
+                                    <td class="center"> {{ client.date|date:"M d, Y" }} </td>
+                                    <td class="center"> {{ client.state }} {{ client.zip_code }} </td>
+                                    <td class="center"> <a href="{% url 'remove-client' %}?id={{ client.id }}" class="btn btn-sm btn-danger">delete</a> </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE CONTENT INNER -->
+{% endblock %}

@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="{% static 'pages/css/pricing.min.css' %}" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
+{% endblock %}
+
+
+{% block content %}
+<!-- BEGIN PAGE CONTENT INNER -->
+    <div class="page-content-inner">
+        <div class="portlet light portlet-fit ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-share font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">CHOOSE YOUR PLAN</span>
+                </div>
+                
+            </div>
+            <div class="portlet-body">
+                {% if price > 0 %}
+
+                <div class="pricing-content-1">
+                    <div class="note note-info note-bordered">
+		            <p>
+		                <a href="javascript:;" target="_blank"> Your alert has been issued! Your lost pet flyer and any leads regarding your lost pet will be sent via email. Please check your email for further updates. 
+<br><br>
+Questions? Email support@cuddlesunited.com or call 234-PET-FIND
+		        </div>
+                </div>
+                {% else %}
+                <div class="pricing-content-1">
+                    <center>
+                    <img src="{% static 'images/pet_bg.png' %}" />
+                    </center>
+                </div>
+                <div class="pricing-content-1">
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="price-column-container border-active">
+                                <div class="price-table-head bg-blue">
+                                    <h2 class="no-margin">BASIC</h2>
+                                </div>
+                                <div class="arrow-down border-top-blue"></div>
+                                <div class="price-table-pricing">
+                                    <h3>
+                                        <sup class="price-sign">$</sup>29</h3>
+                                    <p>Per Alert</p>
+                                </div>
+                                <div class="price-table-footer" style="padding-top: 0px;">
+                                    <a href="javascript: pay_now(29)" class="btn green price-button sbold uppercase">Sign Up</a>
+                                </div>
+                                <div class="price-table-content" style="min-height: 150px;">
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">Automatic Lost Pet Board Postings</div>
+                                    </div>
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">We Alert Shelters, Animal Control Centers, Businesses & Neighbors </div>
+                                    </div>
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">Continued Monitoring of Shelters & Control Centers </div>
+                                    </div>
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">-Download & Print Flyers </div>
+                                    </div>
+                                </div>
+                                <div class="arrow-down arrow-grey"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="price-column-container border-active">
+                                <div class="price-table-head bg-green">
+                                    <h2 class="no-margin">MOST POPULAR</h2>
+                                </div>
+                                <div class="arrow-down border-top-green"></div>
+                                <div class="price-table-pricing">
+                                    <h3>
+                                        <sup class="price-sign">$</sup>89</h3>
+                                    <p>Per Alert</p>
+                                    <div class="price-ribbon">Popular</div>
+                                </div>
+                                <div class="price-table-footer" style="padding-top: 0px;">
+                                    <a href="javascript: pay_now(89)" class="btn green price-button sbold uppercase">Sign Up</a>
+                                </div>
+                                <div class="price-table-content">
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">5,000 Local Facebook Users Reached</div>
+                                    </div>
+                                    <div class="row mobile-padding" style="padding: 2px 0px; padding-bottom: 10px">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">Views from people within 0-5 miles </div>
+                                    </div>
+
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">Automatic Lost Pet Board Postings</div>
+                                    </div>
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">We Alert Shelters, Animal Control Centers, Businesses & Neighbors </div>
+                                    </div>
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">Continued Monitoring of Shelters & Control Centers </div>
+                                    </div>
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">-Download & Print Flyers </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="arrow-down arrow-grey"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="price-column-container border-active">
+                                <div class="price-table-head bg-red">
+                                    <h2 class="no-margin">PREMIER</h2>
+                                </div>
+                                <div class="arrow-down border-top-red"></div>
+                                <div class="price-table-pricing">
+                                    <h3>
+                                        <sup class="price-sign">$</sup>129</h3>
+                                    <p>Per Alert</p>
+                                </div>
+                                <div class="price-table-footer" style="padding-top: 0px;">
+                                    <a href="javascript: pay_now(129)" class="btn green price-button sbold uppercase">Sign Up</a>
+                                </div>
+                                <div class="price-table-content">
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">15,000 Local Facebook Users Reached</div>
+                                    </div>
+                                    <div class="row mobile-padding" style="padding: 2px 0px; padding-bottom: 10px">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">Views from people within 0-5 miles </div>
+                                    </div>
+
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">Automatic Lost Pet Board Postings</div>
+                                    </div>
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">We Alert Shelters, Animal Control Centers, Businesses & Neighbors </div>
+                                    </div>
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">Continued Monitoring of Shelters & Control Centers </div>
+                                    </div>
+                                    <div class="row mobile-padding" style="padding: 2px 0px;">
+                                        <div class="col-xs-2 text-right mobile-padding">
+                                            -
+                                        </div>
+                                        <div class="col-xs-10 text-left mobile-padding" style="font-size: 15px;">Download & Print Flyers </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="arrow-down arrow-grey"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE CONTENT INNER -->
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+<script type="text/javascript">
+    var price;
+    var handler = StripeCheckout.configure({
+        key: '{{ stripe_pk }}',
+        locale: 'auto',
+        token: function(token) {
+          window.location.href = "{% url 'setup_info' %}?token=" + token.id + "&price=" + price
+        }
+      });
+
+    function pay_now(amount){
+        price = amount
+
+        handler.open({
+          name: "Seller: Cuddles United",
+          description: "Issue Your Lost Pet Alert",
+          currency: "usd",
+          email: "{{request.session.user.email}}",
+          amount: amount * 100
+        });
+    }
+</script>
+{% endblock %}

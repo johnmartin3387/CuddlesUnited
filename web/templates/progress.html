@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+<center style="margin-top: 80px;">
+  <div class="m-grid-col-md-3" style="margin:40px; font-size: 20px; color: #1E5F86;">
+      <b class="title">Step 1</b>
+  </div>
+  <div class="progress m-grid-col-md-8" style="height: 40px; border-radius: 30px !important; background-color: #c5c5c5;">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%; border-radius: 30px;">
+      0%
+    </div>
+  </div>
+  <div class="m-grid-col-md-5" style="margin:40px; font-size: 20px; color: #1E5F86;">
+      <b class="description">Reviewing information...</b>
+  </div>
+</center>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+   var percent = 0;
+   var intervalID = null;
+   $(document).ready(function(){
+       intervalID = setInterval(function(){
+           percent += 0.5;
+
+           $(".progress-bar").attr("style", "width:" +percent.toString()+ "%; border-radius: 30px;")
+
+           if(percent == 12.5){
+               $(".title").html("Step 2")
+               $(".description").html("Creating your lost pet flyer...")
+           }else if(percent == 25){
+               $(".title").html("Step 3")
+               $(".description").html("Creating your custom Facebook post...")
+           }else if(percent == 35){
+               $(".title").html("Step 4")
+               $(".description").html("Posting to the Cuddles United Facebook page...")
+           }else if(percent == 47.5){
+               $(".title").html("Step 5")
+               $(".description").html("Alerting the network...")
+           }else if(percent == 65){
+               $(".title").html("Step 6")
+               $(".description").html("Adding your pet to our monitoring system...")
+           }else if(percent == 80){
+               $(".title").html("Step 7")
+               $(".description").html("Posting to lost pet boards...")
+           }
+           else if(percent >= 105){
+               clearInterval(intervalID);
+               window.location = "{% url 'pricing' %}";
+           }
+       }, 200);
+   })
+</script>
+{% endblock %}
