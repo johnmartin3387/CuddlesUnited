@@ -9,6 +9,9 @@ This project is for pet owners who lost their pets. A pet owner can let neighbou
 - Stripe for payment gateway
 - Posting blog to Facebook using Facebook API
 - MailChimp Integration in Python
+- Send email using gmail smtp
+- Create pdf file with pet information using reportlab python Package
+- Image processing using PIL Python Package
 
 - Twitter Bootstrap
 - Jquery
