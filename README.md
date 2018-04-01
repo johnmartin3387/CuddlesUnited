@@ -4,7 +4,6 @@ This project is for pet owners who lost their pets. A pet owner can let neighbou
 
 ## Technology Stack
 - Django
-- Metronic Bootstrap template
 
 - Stripe for payment gateway
 - Posting blog to Facebook using Facebook API
@@ -17,5 +16,5 @@ This project is for pet owners who lost their pets. A pet owner can let neighbou
 - Jquery
 
 ## Live Server
-http://ec2-35-165-9-225.us-west-2.compute.amazonaws.com/
+https://www.cuddlesunited.com/
 
